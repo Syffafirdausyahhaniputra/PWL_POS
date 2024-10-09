@@ -64,6 +64,15 @@
                     <p>Transaksi Penjualan</p>
                 </a>
             </li>
+            <br>
+            <!-- Logout Button -->
+            <li class="nav-item">
+                <a href="{{ url('/logout') }}" class="nav-link">
+                    <button class="btn btn-danger btn-block">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </a>
+            </li>
         </ul>
     </nav>
 </div>
