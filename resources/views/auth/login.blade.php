@@ -93,7 +93,7 @@
         });
 
         $(document).ready(function() {
-            $("#form-register").validate({
+            $("#form-login").validate({
                 rules: {
                     level_id: {
                         required: true,
