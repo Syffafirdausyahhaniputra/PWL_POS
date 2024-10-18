@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Import Data Barang</h5>
-                <button type="button" class="close" data-dismiss="modal" arialabel="Close"><span
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
@@ -12,7 +12,7 @@
                     <label>Download Template</label>
                     <a href="{{ asset('template_barang.xlsx') }}" class="btn btn-info btn-sm" download><i
                             class="fa fa-file-excel"></i>Download</a>
-                    <small id="error-kategori_id" class="error-text form-text textdanger"></small>
+                    <small id="error-kategori_id" class="error-text form-text text-danger"></small>
                 </div>
                 <div class="form-group">
                     <label>Pilih File</label>
@@ -37,23 +37,25 @@
                 },
             },
             submitHandler: function(form) {
-                var formData = new FormData(form); // Jadikan form ke FormData untuk menghandle file
+                var formData = new FormData(
+                form); // Jadikan form ke FormData untuk menghandle file 
+
                 $.ajax({
                     url: form.action,
                     type: form.method,
-                    data: formData, // Data yang dikirim berupa FormData
-                    processData: false, // setting processData dan contentType ke false, untuk menghandle file
+                    data: formData, // Data yang dikirim berupa FormData 
+                    processData: false, // setting processData dan contentType ke false, untuk menghandle file 
                     contentType: false,
                     success: function(response) {
-                        if (response.status) { // jika sukses
+                        if (response.status) { // jika sukses 
                             $('#myModal').modal('hide');
                             Swal.fire({
                                 icon: 'success',
                                 title: 'Berhasil',
                                 text: response.message
                             });
-                            tableBarang.ajax.reload(); // reload datatable
-                        } else { // jika error
+                            dataBarang.ajax.reload(); // reload datatable 
+                        } else { // jika error 
                             $('.error-text').text('');
                             $.each(response.msgField, function(prefix, val) {
                                 $('#error-' + prefix).text(val[0]);
