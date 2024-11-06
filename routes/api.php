@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\BarangController;
 use App\Http\Controllers\Api\KategoriController;
 use App\Http\Controllers\Api\LevelController;
+use App\Http\Controllers\Api\PenjualanController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -60,4 +61,12 @@ Route::group(['prefix' => 'barang'], function () {
     Route::get('/{barang}', [BarangController::class, 'show']);
     Route::put('/{barang}', [BarangController::class, 'update']);
     Route::delete('/{barang}', [BarangController::class, 'destroy']);
+});
+
+Route::group(['prefix' => 'penjualan'], function () {
+    Route::get('/', [PenjualanController::class, 'index']);
+    Route::post('/', [PenjualanController::class, 'store']);
+    Route::get('/{penjualan}', [PenjualanController::class, 'show']);
+    Route::put('/{penjualan}', [PenjualanController::class, 'update']);
+    Route::delete('/{penjualan}', [PenjualanController::class, 'destroy']);
 });
